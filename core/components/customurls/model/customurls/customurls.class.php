@@ -89,7 +89,7 @@ class CustomUrls {
 
         // Get resource fields ...
         $resourceProperties = $resource->toArray();
-        $resourceProperties['alias'] = $resource->cleanAlias($resource->get('pagetitle')); // We manually generate alias to avoid recurisivity
+      $resourceProperties['alias'] = empty($resource->alias) ? $resource->cleanAlias($resource->get('pagetitle')) : $resource->alias; // is alias is empty We manually generate alias to avoid recurisivity
 
         // ... and TVs
         $tvs = array();
